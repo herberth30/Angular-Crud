@@ -15,17 +15,24 @@ export class AppComponent {
   ];
 
   model:any={};
+  model2:any={};
+
 
   addEmployee():void{
+    this.employees.push(this.model);
 
   }
 
-  deleteEmployee():void{
+  deleteEmployee(i:number):void{
 
   }
 
-  editEmployee():void{
 
+  editEmployee(i: number):void{
+
+    this.model2.name = this.employees[i].name;
+    this.model2.position = this.employees[i].position;
+   
   }
 
   updateEmployee():void{
