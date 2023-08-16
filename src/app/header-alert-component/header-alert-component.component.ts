@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
+import { SharedDataService } from '../shared-data.service.service';
 
 @Component({
   selector: 'app-header-alert-component',
@@ -7,9 +8,16 @@ import { Component, Input } from '@angular/core';
 })
 export class HeaderAlertComponentComponent {
 
-  @Input() msg: string = '';
+  msg: string = '';
+
+  constructor(private sharedDataService: SharedDataService) {
+    // Suscríbete al Observable currentMsg para obtener los cambios en el mensaje
+    this.sharedDataService.currentMsg.subscribe(newMsg => {
+      this.msg = newMsg;
+    });
+  }
 
   closeAlert(): void {
-    this.msg = '';
+    this.sharedDataService.changeMsg('');
   }
 }

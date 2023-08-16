@@ -12,6 +12,7 @@ import { ReadUpdateDataComponentComponent } from './read-update-data-component/r
 @NgModule({
   declarations: [
     AppComponent,
+  
     HeaderAlertComponentComponent,
     CreateDataFormComponentComponent,
     ReadUpdateDataComponentComponent
@@ -20,6 +21,9 @@ import { ReadUpdateDataComponentComponent } from './read-update-data-component/r
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    CreateDataFormComponentComponent,
+    HeaderAlertComponentComponent,
+    ReadUpdateDataComponentComponent
     
   ],
   providers: [],
