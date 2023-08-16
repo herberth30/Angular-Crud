@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { SharedDataService } from './shared-data.service.service';
 
 @Component({
   selector: 'app-root',
@@ -6,36 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Angular Crud';
+ 
+constructor(private sharedDataService: SharedDataService){}
 
-  employees=[
-    {'name': 'herberth', position:'programer' },
-    {'name': 'david', position:'designer' },
-    {'name': 'zulma', position:'manager' }
-  ];
-
-  model:any={};
-  model2:any={};
-
-
-  addEmployee():void{
-    this.employees.push(this.model);
-
-  }
-
-  deleteEmployee(i:number):void{
-
-  }
-
-
-  editEmployee(i: number):void{
-
-    this.model2.name = this.employees[i].name;
-    this.model2.position = this.employees[i].position;
-   
-  }
-
-  updateEmployee():void{
+  ngOnInit(){
+    this.sharedDataService.changeTitle('Angular Crud');
+    this.sharedDataService.changeMsg('');
+    this.sharedDataService.changeEmployees([
+      { name: 'herberth', position: 'programmer', email: '' },
+      { name: 'david', position: 'designer', email: '' },
+      { name: 'zulma', position: 'manager', email: '' },
+    ]);
 
   }
 }
